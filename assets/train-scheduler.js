@@ -60,21 +60,36 @@ trainData.on("child_added", function(childSnapshot){
     var fbTrainTimeInput = childSnapshot.val().firstTrain;
     var fbFrequency = childSnapshot.val().frequency;
 
-    var diffTime = moment().diff(moment.unix(fbTrainTimeInput), "minutes");
-	var timeRemainder = moment().diff(moment.unix(fbTrainTimeInput), "minutes") % fbFrequency ;
-	var minutes = fbFrequency - timeRemainder;
+    //Train time conversions
+    var freq = parseInt(fbFrequency);
+    // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
+    //Push back first time one year to ensure it happens before the current time
+    var dConverted = moment(childSnapshot.val().firstTrain, 'HH:mm').subtract(1, 'years');
+    console.log("Date Converted: "+ dConverted);
+    var trainTime = moment(dConverted).format('HH:mm');
+    console.log("TRAIN TIME : " + trainTime);
 
-	var nextTrainArrival = moment().add(minutes, "m").format("hh:mm A"); 
-		
-	// Test for correct times and info
-	console.log(minutes);
-	console.log(nextTrainArrival);
-	console.log(moment().format("hh:mm A"));
-	console.log(nextTrainArrival);
-	console.log(moment().format("X"));
+    //Difference between the two times
+    var tConverted = moment(trainTime, 'HH:mm').subtract(1, 'years');
+    var tDifference = moment().diff(moment(tConverted), 'minutes');
+    console.log("Difference in time: " + tDifference);
+
+    //Calculate the remainder
+    var tRemainder = tDifference % freq; 
+    console.log("Time Remaining: " + tRemainder);
+
+    //Minutes until the next train arrives
+    var minsAway = freq - tRemainder;
+    console.log("Minutes until the next train: " + minsAway);
+    //Next Train
+    var nextTrain = moment().add(minsAway, 'minutes');
+    var nextArrival = moment(nextTrain).format('hh:mm A');
+
 
 	// Append train info to table on page
-	$("#trainTable").append("<tr><td>" + fbName + "</td><td>" + fbLine + "</td><td>"+ fbDestination + "</td><td>" + fbFrequency + " mins" + "</td><td>" + fbTrainTimeInput + "</td><td>" + minutes + "</td></tr>");
+	$("#trainTable").append("<tr><td>" + fbName + "</td><td>" + fbLine + "</td><td>"+ fbDestination + "</td><td>" + freq + " mins" + "</td><td>" + nextArrival + "</td><td>"+ minsAway + "</td><td>");
 
 	
 });
