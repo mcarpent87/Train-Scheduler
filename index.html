@@ -22,13 +22,13 @@
 </head>
 
 <body>
-    <div class = "container">
-        <div class= "jumbotron" style="background-color: cornflowerblue; color: white">
-            <h1>The Super Official Train Schedule</h1>
-        </div>
+<div class = "container">
+    <div class= "jumbotron" style="background-color: cornflowerblue; color: white">
+        <h1>The Super Official Train Schedule</h1>
+    </div>
 
-    <div class = "row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class = "row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
@@ -37,12 +37,12 @@
             <table class="table table-sm table-hover" id='trainTable'>
                 <thead id='inputData'>
                 <tr>
-                    <th scope="col-md-2">Train Name</th>
-                    <th scope="col-md-2">Line</th>
-                    <th scope="col-md-2">Destination</th>
-                    <th scope="col-md-2">Frequency</th>
-                    <th scope="col-md-2">Next Arrival</th>
-                    <th scope="col-md-2">Minutes Away</th>
+                    <th>Train Name</th>
+                    <th>Line</th>
+                    <th>Destination</th>
+                    <th>Frequency</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
                 </tr>   
                 </thead>
             </table>    
@@ -50,7 +50,7 @@
     </div>
 <!--Add Trains-->
 
-<div class="panel panel-primary col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title"><strong>Add a New Train</strong></h3>
         </div>
@@ -59,27 +59,27 @@
             <!-- Entry Form -->
             <form>
                 <div class="form-group">
-                    <label for="">Train Name</label>
+                    <label>Train Name</label>
                     <input type="text" class="form-control" id="trainNameInput">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Line</label>
+                    <label>Line</label>
                     <input type="text" class="form-control" id="lineInput">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Destination</label>
+                    <label>Destination</label>
                     <input type="text" class="form-control" id="destinationInput">
                 </div>
 
                 <div class="form-group">
-                    <label for="">First Train Time (HH:mm - military time)</label>
+                    <label>First Train Time (HH:mm - military time)</label>
                     <input type="text" class="form-control" id="trainTimeInput">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Frequency (min)</label>
+                    <label>Frequency (min)</label>
                     <input type="text" class="form-control" id="frequencyInput">
                 </div>
                 

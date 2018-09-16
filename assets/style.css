@@ -1,9 +1,10 @@
+/*Add background*/
 body {
     background-image: url(./images/extra_clean_paper.png);
     background-size: auto, cover; 
     height: auto;
 } 
-
+/*Style Header Tags*/
 h1 {
     text-align: center;
     font-size: 60px; 
@@ -23,6 +24,27 @@ h5 {
     font-weight: bold;
     text-align: center;
    
+}
+
+/*Style the panels on the html page*/
+#trainNameInput.form-control {
+    width: auto;
+}
+
+#lineInput.form-control {
+    width: auto;
+}
+
+#destinationInput.form-control {
+    width: auto;
+}
+
+#trainTimeInput.form-control {
+    width: auto;
+}
+
+#frequencyInput.form-control {
+    width: auto;
 }
 
 .panel-body {
